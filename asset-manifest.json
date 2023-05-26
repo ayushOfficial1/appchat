@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/appchat/static/css/main.a9639049.css",
+    "main.js": "/appchat/static/js/main.1ff432d8.js",
+    "index.html": "/appchat/index.html",
+    "main.a9639049.css.map": "/appchat/static/css/main.a9639049.css.map",
+    "main.1ff432d8.js.map": "/appchat/static/js/main.1ff432d8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a9639049.css",
+    "static/js/main.1ff432d8.js"
+  ]
+}
