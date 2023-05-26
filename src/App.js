@@ -15,7 +15,7 @@ function App() {
     return children
   };
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/appchat">
       <Routes>
         <Route path="/">
           <Route
