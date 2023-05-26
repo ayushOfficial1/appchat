@@ -1,0 +1,280 @@
+@mixin mobile {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+@mixin tablet {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media screen and (max-width: 1200px) {
+    @content;
+  }
+}
+
+.formContainer {
+  background-color: rgb(255, 239, 242);
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .formWrapper {
+    background-color: rgb(255, 255, 255);
+    padding: 10px 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    form {
+      padding: 10px auto;
+      display: flex;
+      flex-direction: column;
+      //   justify-content: center;
+      align-items: center;
+      gap: 15px;
+      input {
+        width: 100%;
+        padding: 10px;
+      }
+      button {
+        border: none;
+        padding: 10px;
+        background-color: rgb(209, 255, 240);
+        width: 100%;
+        &:hover {
+          background-color: aquamarine;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+.home {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(254, 252, 243);
+
+  .container {
+    background-color: white;
+    height: 80%;
+    width: 70%;
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid rgb(255, 234, 99);
+    overflow: hidden;
+    .sidebar {
+      background-color: rgb(240, 219, 219);
+      border-right: 1px solid rgb(219, 163, 154);
+      flex: 1;
+      .navbar {
+        height: 50px;
+        background-color: rgb(219, 163, 154);
+        padding: 5px 10px;
+        display: flex;
+        align-items: center;
+        .logo {
+          flex: 1;
+          font-weight: 700;
+          font-size: 24px;
+          font-family: "Urbanist", sans-serif;
+          text-transform: uppercase;
+          @include tablet {
+            display: none;
+          }
+        }
+        .user {
+          flex: 1;
+          display: flex;
+          // justify-content: center;
+          align-items: center;
+
+          gap: 10px;
+          img {
+            height: 45px;
+            width: 10px;
+            border-radius: 50%;
+
+            object-fit: cover;
+            flex: 1;
+          }
+          span {
+            flex: 1;
+            text-transform: uppercase;
+            font-weight: 700;
+            font-size: 14px;
+          }
+          button {
+            flex: 1;
+            border-radius: 5px;
+            background-color: rgb(254, 252, 243);
+            border: none;
+            font-size: 12px;
+            padding: 10px 10px;
+            cursor: pointer;
+          }
+        }
+      }
+      .search {
+        // background-color: gold;
+        border-bottom: 3px solid gray;
+        .searchForm {
+          input {
+            background-color: rgb(240, 219, 219);
+            border: transparent;
+            color: black;
+            width: 100%;
+            padding: 10px;
+            outline: none;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            &::placeholder {
+              color: black;
+            }
+          }
+        }
+      }
+      .userChat {
+        background-color: rgb(245, 235, 224);
+        padding: 10px;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid pink;
+        gap: 10px;
+        &:hover {
+          background-color: rgb(219, 163, 154);
+        }
+        img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          object-fit: cover;
+        }
+        .userChatInfo {
+          span {
+            font-weight: bold;
+            font-size: 20px;
+            letter-spacing: 1px;
+          }
+          p {
+            color: black;
+            font-size: 14px;
+            letter-spacing: 1px;
+          }
+        }
+      }
+    }
+    .chat {
+      background-color: rgb(219, 163, 154);
+      flex: 2;
+      display: flex;
+      flex-direction: column;
+      .chatInfo {
+        height: 60px;
+        width: 100%;
+        background-color: rgb(219, 163, 154);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        span {
+          padding: 0px 10px;
+          font-weight: 900;
+          font-size: 20px;
+        }
+        .chatIcons {
+          padding-right: 10px;
+          display: flex;
+          gap: 10px;
+        }
+      }
+      .messages {
+        background-color: rgb(245, 235, 224);
+        padding: 10px;
+        flex: 1;
+        overflow: scroll;
+        .message {
+          padding: 0px 10px;
+
+          display: flex;
+
+          gap: 20px;
+          .messageInfo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: gray;
+            font-weight: 400;
+            margin-bottom: 10px;
+            img {
+              width: 40px;
+              height: 40px;
+
+              border-radius: 50%;
+              object-fit: cover;
+            }
+          }
+          .messageContent {
+            max-width: 80%;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            p {
+              background-color: rgb(253, 218, 224);
+              padding: 10px 20px;
+              border-radius: 0px 10px 10px 10px;
+              max-width: max-content;
+            }
+            img {
+              width: 50%;
+              margin: 10px 0px;
+            }
+          }
+          &.owner {
+            flex-direction: row-reverse;
+            .messageContent {
+              align-items: flex-end;
+              p {
+                background-color: rgb(254, 219, 176);
+                border-radius: 10px 0px 10px 10px;
+              }
+            }
+          }
+        }
+      }
+      .input {
+        height: 50px;
+        padding: 10px;
+        background-color: rgb(219, 163, 154);
+        display: flex;
+        justify-content: space-between;
+        input {
+          font-size: 16px;
+          letter-spacing: 2px;
+          outline: none;
+          padding: 5px;
+          border: none;
+          background-color: transparent;
+          flex: 1;
+        }
+        .send {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          button {
+            border: none;
+            background: none;
+          }
+        }
+      }
+    }
+  }
+
+}
