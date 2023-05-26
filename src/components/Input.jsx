@@ -68,10 +68,9 @@ const Input = () => {
           });
         }
       );
-    } else {     
-      
+    } else {
       if (!userChatDoc.exists()) {
-        alert("num1")
+        alert("num1");
       }
       await updateDoc(doc(db, "chats", data.chatId), {
         messages: arrayUnion({
@@ -84,20 +83,20 @@ const Input = () => {
     }
 
     if (!userChatDoc.exists()) {
-      alert("num2")
+      alert("num2");
     }
     await updateDoc(doc(db, "userChats", currentUser.uid), {
       [data.chatId + ".lastMessage"]: {
         text,
       },
       [data.chatId + ".date"]: serverTimestamp(),
-    })
+    });
 
     // console.log(`Updating userChats document for ${data.user.uid}`);
     // console.log(`Updating userChats document for ${currentUser.uid}`);
- 
+
     if (!userChatDoc.exists()) {
-      alert("num3")
+      alert("num3");
     }
     await updateDoc(doc(db, "userChats", data.user.uid), {
       [data.chatId + ".lastMessage"]: {
@@ -124,6 +123,11 @@ const Input = () => {
           style={{ display: "none" }}
           id="file"
           onChange={(e) => setImg(e.target.files[0])}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              handleSend();
+            }
+          }}
         />
         <label htmlFor="file">
           <Image />
